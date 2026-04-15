@@ -41,6 +41,6 @@ link_libraries(
   fmt
 )
 
-add_executable(unitree_mujoco ${SIM_SRC} src/main.cc)
+add_executable(unitree_mujoco ${SIM_SRC} src/main.cc src/linear_trajectory_player.cpp src/trajectory_scorer.cpp)
 
 add_executable(jstest src/joystick/jstest.cc src/joystick/joystick.cc)

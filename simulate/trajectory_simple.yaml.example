@@ -1,0 +1,21 @@
+# Simple Trajectory Example: Straight Line with Turn
+# Demonstrates a basic forward-and-turn trajectory
+
+# Motion parameters
+parameters:
+  max_velocity: 0.15             # m/s - Slower for precision
+  max_acceleration: 0.3          # m/s^2
+  max_angular_velocity: 0.4      # rad/s (~22.9 deg/s)
+  max_angular_acceleration: 0.25 # rad/s^2
+
+# Trajectory segments - Simple forward and turn back
+# Each segment: [x_start, y_start, x_end, y_end, yaw_start, yaw_end]
+segments:
+  - [0.0, 0.0, 3.0, 0.0, 0.0, 0.0]           # Forward 3m (facing 0°)
+  - [3.0, 0.0, 3.0, 0.0, 0.0, 3.14159]       # Turn 180° in place
+  - [3.0, 0.0, 0.0, 0.0, 3.14159, 3.14159]   # Return to start (facing 180°)
+
+# Notes:
+# - This creates a simple back-and-forth motion
+# - Robot moves forward 3 meters, turns around, and returns
+# - Turn-in-place is achieved by having same start/end position but different yaw

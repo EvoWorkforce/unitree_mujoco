@@ -1,0 +1,38 @@
+# Trajectory Player Configuration
+# This file defines the trajectory segments and motion parameters
+
+# Motion parameters
+parameters:
+  max_velocity: 0.2              # m/s - Maximum linear velocity
+  max_acceleration: 0.4          # m/s^2 - Maximum linear acceleration
+  max_angular_velocity: 0.5      # rad/s - Maximum angular velocity (~28.6 deg/s)
+  max_angular_acceleration: 0.3  # rad/s^2 - Maximum angular acceleration
+
+# Trajectory segments
+# Each segment: [x_start, y_start, x_end, y_end, yaw_start, yaw_end]
+# Coordinates in meters, angles in radians
+segments:
+  - [0.0, 0.0, 1.0, 0.0, 0.0, 0.0]            # East
+  - [1.0, 0.0, 1.5, 0.5, 0.0, 0.7854]         # Northeast (45°)
+  - [1.5, 0.5, 1.5, 1.0, 0.7854, 1.5708]      # North (90°)
+  - [1.5, 1.0, 1.0, 1.5, 1.5708, 2.3562]      # Northwest (135°)
+  - [1.0, 1.5, 0.0, 1.5, 2.3562, 3.14159]     # West (180°)
+  - [0.0, 1.5, -0.5, 1.0, 3.14159, -2.3562]   # Southwest (-135°)
+  - [-0.5, 1.0, -0.5, 0.5, -2.3562, -1.5708]  # South (-90°)
+  - [-0.5, 0.5, 0.0, 0.0, -1.5708, 0.0]       # Southeast back to start
+  - [0.0, 0.0, -1.0, 0.0, 0.0, 0.0]
+  - [-1.0, 0.0, -1.5, -0.5, 0.0, 0.0]
+  - [-1.5, -0.5, -1.5, -1.0, 0.0, 0.0]
+  - [-1.5, -1.0, -1.0, -1.5, 0.0, 0.0]
+  - [-1.0, -1.5, 0.0, -1.5, 0.0, 0.0]
+  - [0.0, -1.5, 0.5, -1.0, 0.0, 0.0]
+  - [0.5, -1.0, 0.5, -0.5, 0.0, 0.0]
+  - [0.5, -0.5, 0.0, 0.0, 0.0, 0.0]
+
+# Notes:
+# - π (pi) ≈ 3.14159
+# - π/2 ≈ 1.5708 (90 degrees)
+# - π/4 ≈ 0.7854 (45 degrees)
+# - Positive yaw is counter-clockwise rotation
+# - To create custom trajectories, add more segments
+# - Example linear path: [[x1, y1, x2, y2, yaw1, yaw2], ...]
